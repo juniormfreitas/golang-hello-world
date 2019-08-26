@@ -85,27 +85,33 @@ func checkStatus() {
 func showSites() []string {
 	var sites []string
 
-	file, err := os.Open("sites.txt")
+	filename := "sites.txt"
 
-	if err != nil {
-		fmt.Println("Error to open the file: ", err)
-	}
+	_, err := os.Stat(filename)
+	if os.IsNotExist(err) {
+		fmt.Println(filename, "does not exist.")
+	} else {
+		file, err := os.Open(filename)
 
-	reader := bufio.NewReader(file)
-
-	for {
-		row, fileErr := reader.ReadString('\n')
-		row = strings.TrimSpace(row)
-
-		sites = append(sites, row)
-
-		if fileErr == io.EOF {
-			break
+		if err != nil {
+			fmt.Println("Error to open the file: ", err)
 		}
 
-	}
+		reader := bufio.NewReader(file)
 
-	file.Close()
+		for {
+			row, fileErr := reader.ReadString('\n')
+			row = strings.TrimSpace(row)
+
+			sites = append(sites, row)
+
+			if fileErr == io.EOF {
+				break
+			}
+		}
+
+		file.Close()
+	}
 
 	return sites
 }
