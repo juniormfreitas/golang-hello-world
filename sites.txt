@@ -1,2 +1,3 @@
-https://juniorfreitas.net
-http://random-status-code.herokuapp.com
+https://jfreitas.dev
+https://random-status-code.herokuapp.com
+https://jfreitas.photos
