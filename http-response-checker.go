@@ -48,7 +48,7 @@ func main() {
 
 func introduction() {
 	fmt.Println("-----------------------")
-	fmt.Println("Http Request Checker")
+	fmt.Println("Http Response Checker")
 	fmt.Println("Author: ", Author)
 	fmt.Println("Version: ", Version)
 	fmt.Println("-----------------------")
