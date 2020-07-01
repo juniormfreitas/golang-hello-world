@@ -12,10 +12,17 @@ import (
 	"time"
 )
 
-const AUTHOR = "J. de Freitas"
-const VERSION = 1.02
-const DELAY = 1
-const HTTP_OK = 200
+// Author string : Author's name
+const Author = "J. de Freitas"
+
+// Version int : App's Version
+const Version = 1.02
+
+// Delay int : One second delay
+const Delay = 1
+
+// HTTPOK int : Http response when the resquest resturns properly
+const HTTPOK = 200
 
 func main() {
 
@@ -42,8 +49,8 @@ func main() {
 func introduction() {
 	fmt.Println("-----------------------")
 	fmt.Println("Http Request Checker")
-	fmt.Println("Author: ", AUTHOR)
-	fmt.Println("Version: ", VERSION)
+	fmt.Println("Author: ", Author)
+	fmt.Println("Version: ", Version)
 	fmt.Println("-----------------------")
 }
 
@@ -80,7 +87,7 @@ func checkStatus() {
 
 	for _, site := range sites {
 		testSite(site)
-		time.Sleep(DELAY * time.Second)
+		time.Sleep(Delay * time.Second)
 	}
 }
 
@@ -127,7 +134,7 @@ func testSite(site string) {
 		fmt.Println(err)
 	} else {
 		if &httpResp.StatusCode != nil {
-			if httpResp.StatusCode == HTTP_OK {
+			if httpResp.StatusCode == HTTPOK {
 				fmt.Println("Status: ", httpResp.StatusCode, " - Successfully loaded")
 			} else {
 				fmt.Println("Status: ", httpResp.StatusCode, " We are unable to load this website")
