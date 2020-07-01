@@ -12,6 +12,8 @@ import (
 	"time"
 )
 
+const AUTHOR = "J. de Freitas"
+const VERSION = 1.02
 const DELAY = 1
 const HTTP_OK = 200
 
@@ -38,11 +40,11 @@ func main() {
 }
 
 func introduction() {
-	name := "J Freitas"
-	version := 1.02
-
-	fmt.Println("Hello,", name)
-	fmt.Println("Version: ", version)
+	fmt.Println("-----------------------")
+	fmt.Println("Http Request Checker")
+	fmt.Println("Author: ", AUTHOR)
+	fmt.Println("Version: ", VERSION)
+	fmt.Println("-----------------------")
 }
 
 func getUserInput() int {
