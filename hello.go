@@ -12,8 +12,8 @@ import (
 	"time"
 )
 
-const delay = 1
-const httpOk = 200
+const DELAY = 1
+const HTTP_OK = 200
 
 func main() {
 
@@ -39,7 +39,7 @@ func main() {
 
 func introduction() {
 	name := "J Freitas"
-	version := 1.01
+	version := 1.02
 
 	fmt.Println("Hello,", name)
 	fmt.Println("Version: ", version)
@@ -78,7 +78,7 @@ func checkStatus() {
 
 	for _, site := range sites {
 		testSite(site)
-		time.Sleep(delay * time.Second)
+		time.Sleep(DELAY * time.Second)
 	}
 }
 
@@ -125,7 +125,7 @@ func testSite(site string) {
 		fmt.Println(err)
 	} else {
 		if &httpResp.StatusCode != nil {
-			if httpResp.StatusCode == httpOk {
+			if httpResp.StatusCode == HTTP_OK {
 				fmt.Println("Status: ", httpResp.StatusCode, " - Successfuly loaded")
 			} else {
 				fmt.Println("Status: ", httpResp.StatusCode, " We are unable to load this website")
